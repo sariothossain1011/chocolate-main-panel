@@ -1,11 +1,13 @@
 import React from 'react'
+import HeroSection from './HeroSection'
+import CategoriesFeatureProducts from './CategoriesFeatureProducts'
 
 const LandgingPage = () => {
   return (
-    <div className=' text-center py-20'>
-      <h1 className=' text-4xl  font-bold '>I&apos;m Chocolate Home Page...</h1>
-      <p className='text-sm font-medium'>Creating by SARIOT HOSSAIN</p>
-    </div>
+    <>
+    <HeroSection/>
+    <CategoriesFeatureProducts/>
+    </>
   )
 }
 

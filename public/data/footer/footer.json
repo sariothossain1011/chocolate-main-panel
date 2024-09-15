@@ -1,0 +1,56 @@
+[
+    {
+        "mainTitle": "MAIN FEATURES",
+        "items": [
+            {
+                "title": "Chocolate",
+                "path": "/"
+            },
+            {
+                "title": "Juice",
+                "path": "/"
+            },
+            {
+                "title": "Cake",
+                "path": "/"
+            },
+            {
+                "title": "Books",
+                "path": "/"
+            },
+            {
+                "title": "Perfume",
+                "path": "/"
+            }
+        ]
+    },
+    {
+        "mainTitle": "USEFULL LINKS",
+        "items": [
+            {
+                "title": "Abouts Us",
+                "path": "/"
+            },
+            {
+                "title": "Blogs",
+                "path": "/"
+            },
+            {
+                "title": "Privacy & Policy",
+                "path": "/"
+            },
+            {
+                "title": "Terms & conditions",
+                "path": "/"
+            },
+            {
+                "title": "Return And Refound Policy",
+                "path": "/"
+            },
+            {
+                "title": "Contact Us",
+                "path": "/"
+            }
+        ]
+    }
+]

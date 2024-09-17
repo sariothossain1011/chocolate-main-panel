@@ -54,7 +54,12 @@ const CategoriesFeatureProducts = () => {
                         </h1>
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border p-4'>
-                        {products && <ProductCard products={products.slice(0, 4)} />}
+                        {/* {products && <ProductCard products={products.slice(0, 4)} />} */}
+                        {
+                            products?.slice(0, 4).map((item,index)=>(
+                                <ProductCard product={item} key={index}/>
+                            ))
+                        }
                     </div>
                 </div>
             ))}

@@ -55,7 +55,6 @@
 // export default Header
 
 'use client'
-
 import DHeaderSearch from './DHeaderSearch';
 import MHeaderSearch from './MHeaderSearch';
 import { useState, useEffect } from 'react';
@@ -65,12 +64,29 @@ import menuData from '../../../../public/data/header.json'; // Import your JSON 
 import { FaBars, FaUserLarge } from "react-icons/fa6";
 import { MdOutlineShoppingBag, MdStarOutline, MdKeyboardArrowRight } from "react-icons/md";
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store/Store';
 const Header = () => {
   const [menu, setMenu] = useState<MenuItem[]>([]); // TypeScript ensures correct types here
   const [isOpen, setIsOpen] = useState(false); // Control main menu visibility
   const [activeMenu, setActiveMenu] = useState<string | null>(null); // Control which submenu is active
 
-  // Load menu from JSON on component mount
+  const { cartCount } = useSelector(
+    (state: RootState) => ({
+      cartCount: state.cart.cartCount,
+    })
+  ) as {
+    cartCount: number;
+  };
+
+  const { wishlistCount } = useSelector(
+    (state: RootState) => ({
+      wishlistCount: state.wishlist.wishlistCount,
+    })
+  ) as {
+    wishlistCount: number;
+  };
+
   useEffect(() => {
     setMenu(menuData); // Here you'd fetch from the JSON file or API
   }, []);
@@ -84,7 +100,6 @@ const Header = () => {
 
       <header className='bg-slate-400'>
         <div className='container flex flex-row justify-between items-center py-3'>
-          {/* Left Side - Main Menu */}
           <div className='relative flex flex-row items-center gap-3'>
             <FaBars size={24} onClick={() => setIsOpen(!isOpen)} className="cursor-pointer" />
             <Image src="/logo/logo.png" alt="" width={90} height={20} />
@@ -124,14 +139,14 @@ const Header = () => {
           </div>
 
           <div className='flex flex-row items-center gap-4 md:gap-6'>
-            <div className=' relative'>
+            <Link href="/wishlist" className=' relative'>
               <MdStarOutline size={26} />
-              <span className=' flex justify-center absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[12px] bg-black text-white '>5</span>
-            </div>
-            <div className=' relative'>
+              <span className=' flex justify-center absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[12px] bg-black text-white '>{`${wishlistCount}`}</span>
+            </Link>
+            <Link href="/cart" className=' relative'>
               <MdOutlineShoppingBag size={25} />
-              <span className=' flex justify-center absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[12px] bg-black text-white '>2</span>
-            </div>
+              <span className=' flex justify-center absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[12px] bg-black text-white '>{`${cartCount}`}</span>
+            </Link>
 
             <Link href="/login"><FaUserLarge size={20} /></Link>
           </div>

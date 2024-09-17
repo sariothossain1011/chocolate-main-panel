@@ -62,3 +62,25 @@ export interface IProduct {
   description: Description[]; // Array of description objects
   review: Review[]; // Array of review objects
 }
+
+
+export interface IAddToCart {
+  id: number;
+  title: string;
+  permaLink: string;
+  weight: string;
+  brand: string;
+  productType: string; // Correcting prodcutType to productType
+  productOrigin: string; // Correcting prodcutOrigin to productOrigin
+  sku: string;
+  price: number;
+  discountPrice: number;
+  quantity: number;
+  category: string;
+  image: string;
+}
+
+export interface IStoreItem extends IAddToCart {
+  uuid: string;
+  date: string;
+}

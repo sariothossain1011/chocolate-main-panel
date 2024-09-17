@@ -45,7 +45,7 @@ const MFooter = () => {
 
     return (
         <div className=''>
-            <div className=' grid md:grid-cols-2  gap-6 justify-center items-center text-center'>
+            <div className=' grid md:grid-cols-2  gap-6 justify-center items-center text-center pb-4'>
                 <div className=' flex flex-col gap-2 '>
                     <div className=' flex flex-row justify-center items-center'>
                     <Image src="/logo/logo.png" alt='logo' width={100} height={100} />
@@ -92,7 +92,8 @@ const MFooter = () => {
                     <p className=' flex flex-row items-center gap-1'><MdEmail size={18} /> <Link href="">contact.chocolate@gmail.com</Link></p>
                 </div>
             </div>
-            <div className=' flex flex-col md:flex-row gap-2 justify-between items-center  text-black py-5 px-4 text-md font-normal '>
+            <hr/>
+            <div className=' flex flex-col md:flex-row gap-2 justify-between items-center text-center  text-white py-5 px-4 text-sm font-normal '>
                 <p>&copy;2024 Chocolate. All Rights Reserved</p>
                 <p>Design & Developed by Sariot Hossain</p>
             </div>

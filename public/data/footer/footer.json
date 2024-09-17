@@ -25,31 +25,35 @@
         ]
     },
     {
-        "mainTitle": "USEFULL LINKS",
+        "mainTitle": "Customer Service",
         "items": [
             {
                 "title": "Abouts Us",
-                "path": "/"
+                "path": "/about-us"
             },
             {
                 "title": "Blogs",
-                "path": "/"
+                "path": "/blogs"
+            },
+            {
+                "title": "FAQ",
+                "path": "/frequently-asked-questions"
             },
             {
                 "title": "Privacy & Policy",
-                "path": "/"
+                "path": "/privacy-policy"
             },
             {
                 "title": "Terms & conditions",
-                "path": "/"
+                "path": "/terms-and-condition"
             },
             {
                 "title": "Return And Refound Policy",
-                "path": "/"
+                "path": "/return-and-refund-policy"
             },
             {
                 "title": "Contact Us",
-                "path": "/"
+                "path": "/contact-us"
             }
         ]
     }

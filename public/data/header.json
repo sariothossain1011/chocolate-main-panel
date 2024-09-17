@@ -1,0 +1,31 @@
+[
+    {
+        "title": "All Products",
+        "link": "/",
+        "submenu": []
+    },
+    {
+        "title": "Chocolate",
+        "link": "/chocolate",
+        "submenu": [
+            {
+                "title": "Chocolate Box",
+                "link": "/chocolate/chocolate-box"
+            },
+            {
+                "title": "Chocolate Bar",
+                "link": "/chocolate/chocolate-bar"
+            }
+        ]
+    },
+    {
+        "title": "Juice",
+        "link": "/juice",
+        "submenu": [
+            {
+                "title": "Orange Juice",
+                "link": "/juice/orange-juice"
+            }
+        ]
+    }
+]

@@ -12,6 +12,7 @@ import b2 from "../../../public/images/b2.jpg";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import ArrowButton from "../button/ArrowButton";
+import MotionTransition from "../motion/MotionTransition";
 
 interface Testimonial {
   id: string,
@@ -48,9 +49,9 @@ const HeroSection: React.FC = () => {
     useRef<SwiperType | null>(null);
 
   return (
-    <>
-      <div className=" md:p-4">
-        
+    <MotionTransition initialY={50} duration={2}>
+      <div className=" md:py-4">
+
         <Swiper
           slidesPerView={1}
           // spaceBetween={10}
@@ -78,21 +79,21 @@ const HeroSection: React.FC = () => {
           {testimonialData.map((item) => (
             <SwiperSlide
               key={item.id}
-              className=" w-full min-h-[200px] md:min-h-[350px] bg-slate-100 px-8 py-10 rounded-md grid gap-5"
-              // style={{ minHeight: "350px" }} // Adjust minHeight as needed
+              className=" w-full min-h-[200px] md:min-h-[350px] lg:min-h-[400px] bg-slate-100 px-8 py-10 rounded-md grid gap-5"
+
             >
 
               <Image
                 src={item.image}
-               fill
+                fill
                 alt={item.title}
-                className=""
+                className=" rounded-sm"
               />
             </SwiperSlide>
           ))}
         </Swiper>
         <div className="flex flex-row justify-between items-center mt-4">
-          
+
           <div className="swiper-nav-btns flex gap-2">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
@@ -109,7 +110,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </MotionTransition>
   );
 };
 

@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa6";
 import emailjs from "@emailjs/browser";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
+import Button from "@/components/button/Button";
 
 const ContactUsPage = () => {
   const [loading, setLoading] = useState(false);
@@ -61,7 +62,7 @@ const ContactUsPage = () => {
   return (
     <div className=" container py-10">
       <div className="py-4">
-        <h2 className="text-md font-semibold py-2">GET IN TOUCH</h2>
+        <h2 className="text-xl font-semibold py-2 text-[#f0c76e]">GET IN TOUCH</h2>
         <p className="text-sm font-normal">
           Please enter the detals of your request. A member of our support staff
           will respond as soon as possible
@@ -75,35 +76,33 @@ const ContactUsPage = () => {
           <div className="grid md:grid-cols-2 gap-2">
             <FormInput
               name="name"
+              required
               placeholder="YOUR NAME"
               className="border p-2 text-sm rounded outline-none"
             />
             <FormInput
               name="email"
+              required
               placeholder="YOUR EMAIL"
               className="border p-2 text-sm rounded outline-none"
             />
           </div>
           <FormInput
             name="phone"
+            required
             placeholder="PHONE NUMBER"
             className="border p-2 text-sm rounded outline-none"
           />
           <FormTextarea
             name="message"
+            required
             placeholder="YOUR MESSAGE"
             rows={8}
             className="border p-2 text-sm rounded outline-none"
           />
           {success && <p className="text-green-500 text-sm">{success}</p>}
           {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button
-            type="submit"
-            className="w-40 h-10 text-white rounded-3xl text-sm bg-[#132842]"
-            disabled={loading}
-          >
-            {loading ? <LoadingSpinner /> : "Submit Now"}
-          </button>
+                  <Button name={`${loading ? <LoadingSpinner/> : 'SUBMIT NOW'}`} className='w-48 rounded-sm'/>
         </Form>
         <div className=" flex flex-col gap-4 min-w-full  md:min-w-[40%]  px-4">
           <p className="text-sm font-normal">
@@ -111,10 +110,10 @@ const ContactUsPage = () => {
             matti,Visaosang Building VST District, NY Accurms,North American
           </p>
           <p className="text-sm font-normal">
-            <span className=" font-semibold">Email:</span>support@gmail.com
+            <span className=" font-semibold">Email:</span> <Link href="mailto:sariothossain1011@gmail.com" >sariothossain1011@gmail.com</Link>
           </p>
           <p className="text-sm font-normal">
-            <span className=" font-semibold">Call Us:</span>(012)-345-67890
+            <span className=" font-semibold">Call Us:</span> <Link href="tel:+01881286293">+01881-286293</Link>
           </p>
           <p className="text-sm font-normal">
             <span className=" font-semibold">Opening time:</span>Our store has
@@ -127,7 +126,7 @@ const ContactUsPage = () => {
                 href={item.link}
                 target="_blank"
                 key={index}
-                className=" bg-[#132842] rounded-md text-white px-2 py-2 duration-300 ease-out"
+                className=" bg-[#703f07] hover:bg-[#f0c76e] rounded-md text-white px-2 py-2 duration-300 ease-out"
               >
                 {item.icon}{" "}
               </Link>

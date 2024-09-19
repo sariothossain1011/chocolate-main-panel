@@ -1,4 +1,5 @@
 
+import Button from '@/components/button/Button';
 import ProductsAdditionalDetails from '@/components/products/ProductsAdditionalDetails';
 import getSingleProduct from '@/lib/api/getSingleProduct';
 import Image from 'next/image';
@@ -38,8 +39,8 @@ const ProductPermalinkPage: React.FC<SingleProductProps> = async ({ params }) =>
             product?.quantity && product?.quantity > 0 ? `${product?.quantity} Product left in stock` : "Out of stock"
           }
           <div className=' min-w-full flex flex-row gap-4  items-center'>
-            <button className=' w-60 bg-purple-800 py-3 rounded-sm'>Add to card</button>
-            <button className=' w-60 bg-purple-800 py-3 rounded-sm'>Buy Now</button>
+            <Button name='ADD TO CART'/>
+            <Button name='BUY NOW'/>
           </div>
 
         </div>

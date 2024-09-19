@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
 
-    <html lang="en">
+    <html lang="en" data-theme="light" >
       <body className={inter.className}>
         <StoreProvider >
         <Header />

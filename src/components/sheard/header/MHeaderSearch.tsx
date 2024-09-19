@@ -11,7 +11,7 @@ const MHeaderSearch = () => {
     <div className=' flex md:hidden px-2 py-1'>
       <Form submitHandler={handleSubmit} className='w-full flex flex-row gap-2 justify-center items-center  '>
         <div className=' w-[95%]'><FormInput name='search' placeholder='Search Products...' className='w-full bg-slate-200 text-black outline-none rounded-full px-4' /></div>
-        <button className='w-[15%] flex justify-center bg-slate-500  py-2.5 rounded-full text-white'><IoSearch size={20} /></button>
+        <button className='w-[15%] flex justify-center bg-[#f0c76e]  py-2.5 rounded-full text-white'><IoSearch size={22} /></button>
       </Form>
     </div>
   )

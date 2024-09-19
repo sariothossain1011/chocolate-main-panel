@@ -21,7 +21,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = ({ direction }) => {
   return (
     <div
       className={`flex justify-center items-center w-10 h-10 rounded-full shadow-md cursor-pointer transition-colors duration-300 ${
-        isHovered ? "bg-slate-800" : "bg-white"
+        isHovered ? "bg-[#f0c76e]" : "bg-white"
       } ${rotationClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

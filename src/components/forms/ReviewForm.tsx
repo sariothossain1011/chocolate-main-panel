@@ -3,6 +3,7 @@ import React from 'react'
 import { FaStar } from "react-icons/fa6";
 import Form from './Form';
 import FormTextarea from './FormTextarea';
+import Button from '../button/Button';
 const ReviewForm = () => {
     const handleSubmit =(data:any)=>{
         console.log(data)
@@ -16,7 +17,7 @@ const ReviewForm = () => {
                 <FaStar size={22} className=' text-orange-500' />
             </div>
             <FormTextarea name='comments' rows={5} label='your review' placeholder='REVIEW HERE ....' className=' border outline-none text-sm p-4 rounded-sm'/>
-            <button className=' w-48 bg-blue-600 py-2 rounded-sm'>Submit</button>
+            <Button name='SUBMIT'/>
         </Form>
     )
 }

@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import Button from '../button/Button';
 // import LoadingSpinner from '../common/LoadingSpinner';
 const REGISTER_MUTATION = `
  mutation Register($input: RegisterInput!) {
@@ -56,7 +57,6 @@ const RegisterForm = () => {
             }
 
         } catch (error) {
-            console.log(error);
             setError("Something went wrong");
         } finally {
             setLoading(false);
@@ -73,10 +73,8 @@ const RegisterForm = () => {
             <FormInput name='password' id='password' placeholder='PASSWORD' type="password" className='  min-w-full border hover:border-black rounded-sm px-4 py-3 text-sm' />
             {error && <p className="text-red-500 text-[10px]">{error}</p>}
             <div className='flex items-center gap-1 text-sm'> <FormInput name="check" type="checkbox" /><p>Sign up for our newsletter</p></div>
-            <p className=' text-sm font-normal'>If you don&apos;t have an account, please<Link href="/login" className=' text-sm font-semibold text-blue-500'> Login Here</Link></p>
-            <button className='  min-w-full bg-[#132842]  py-3 text-white rounded-md text-base'>
-            {/* {loading ? <LoadingSpinner /> : "Registration"} */}Registration
-            </button>
+            <p className=' text-sm font-normal'>If you don&apos;t have an account, please<Link href="/login" className='text-sm font-semibold text-[#f0c76e] underline'> Login Here</Link></p>
+            <Button name="REGISTRATION" className=' rounded-sm'/>
         </Form>
     )
 }

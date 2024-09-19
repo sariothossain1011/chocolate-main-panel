@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import Cookies from "js-cookie";
+import Button from '../button/Button';
 // import { instance } from '@/axios/axiosInstance';
 // import LoadingSpinner from '../common/LoadingSpinner';
 const LOGIN_MUTATION = `
@@ -55,7 +56,6 @@ const LoginForm = () => {
                 router.push("/account");
             }
         } catch (error) {
-            console.log(error);
             setError("Something went wrong");
         } finally {
             setLoading(false);
@@ -70,12 +70,10 @@ const LoginForm = () => {
 
             <FormInput name='password' id='password' placeholder='PASSWORD' type='password' className='  min-w-full border hover:border-black rounded-sm px-4 py-3 text-sm' />
             {error && <p className="text-red-500 text-[10px]">{error}</p>}
-            <div className='flex items-center gap-1 text-sm'> <MdEmail size={16} /> <Link href={'/forgot-password'} className=' font-semibold'>Forgot your Password?</Link></div>
-            <p className=' text-sm font-normal'>If you don&apos;t have an account, please<Link href="/register" className=' font-semibold text-blue-500'> Register Here</Link></p>
+            <div className='flex items-center gap-1 text-sm'> <MdEmail size={16} /> <Link href={'/forgot-password'} className=' text-[10px] font-semibold'>Forgot your Password?</Link></div>
+            <p className=' text-sm font-normal'>If you don&apos;t have an account, please<Link href="/register" className=' font-normal text-[#f0c76e] underline'> Register Here</Link></p>
            
-            <button className='  min-w-full bg-[#132842]  py-3 text-white rounded-md text-base'>
-                {/* {loading ? <LoadingSpinner /> : "Login"} */}Login
-            </button>
+            <Button name="LOGIN" className=' rounded-sm'/>
         </Form>
     )
 }

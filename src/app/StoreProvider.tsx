@@ -10,7 +10,6 @@ const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   if (!storeRef.current) {
     storeRef.current = makeStore();
   }
-
   return <Provider store={storeRef.current}>{children}</Provider>;
 };
 

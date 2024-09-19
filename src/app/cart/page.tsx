@@ -3,16 +3,24 @@ import { RootState } from '@/redux/store/Store';
 import { IStoreItem } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useRouter } from 'next/navigation';
 import { addComment, decrementQuantity, incrementQuantity, removeFromCart } from '@/redux/state-slice/CartSlice';
+import Button from '@/components/button/Button';
 const CartPage = () => {
 
   const router = useRouter();
   const dispatch = useDispatch();
   const [comment, setComment] = useState<string>("");
+  const [isMounted, setIsMounted] = useState(false); // Check for client-side mounting
+
+  // Use useEffect to ensure consistent state between SSR and CSR
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { cartCount, cartItems } = useSelector(
     (state: RootState) => ({
       cartCount: state.cart.cartCount,
@@ -51,6 +59,10 @@ const CartPage = () => {
     (acc, item) => acc + item.discountPrice * item.quantity,
     0
   );
+  if (!isMounted) {
+    return <div>Loading...</div>;
+  }
+  
   if (cartItems.length == 0) {
     return <div className=' text-center py-20'>
       <h1>Empty Cart Value</h1>
@@ -58,7 +70,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 py-4">
+    <div className="flex flex-col md:flex-row gap-8 py-20">
       <div className="min-w-full md:min-w-[60%]">
         <div className="border">
           <div className="min-w-full hidden md:flex flex-col md:flex-row justify-between items-center bg-slate-100 px-4 py-3">
@@ -137,17 +149,13 @@ const CartPage = () => {
         </div>
 
         <div className="w-full flex flex-row justify-center items-center text-center gap-4 md:gap-8 py-4">
-          <button
-            onClick={handleCheckout}
-            className="w-full py-4 bg-slate-200 hover:bg-[#132842] text-black hover:text-white rounded-full text-sm font-semibold"
-          >
-            Proceed To Checkout
-          </button>
+          <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
+         
           <Link
             href="/products"
-            className="w-full py-4 hover:bg-opacity-95 bg-[#132842] text-white rounded-full text-sm font-semibold"
+            className=' w-full'
           >
-            Continue Shopping
+            <Button name='CONTINUE SHOPPING'/>
           </Link>
         </div>
       </div>
@@ -175,12 +183,7 @@ const CartPage = () => {
           </div>
         </div>
 
-        <button
-          onClick={handleCheckout}
-          className="w-full py-4 bg-[#132842] text-white rounded-full text-sm font-semibold"
-        >
-          Proceed To Checkout
-        </button>
+        <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
       </div>
     </div>
   )

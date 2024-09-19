@@ -47,8 +47,9 @@ const DFooter = () => {
     <div className=' pt-10'>
       <div className=' grid grid-cols-1 md:flex md:flex-row gap-8  pb-4'>
         <div className=' flex flex-col gap-4 min-w-[30%]'>
-          <Image src="/logo/logo.png" alt='logo' width={100} height={100} />
-          <p className=' text-[14px]'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .</p>
+          {/* <Image src="/logo/logo.png" alt='logo' width={100} height={100} /> */}
+          <h1 className=' text-[#f0c76e] text-3xl font-extrabold italic'>CHOCOLATE</h1>
+          <p className=' text-[14px] text-white'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .</p>
           <SusbscribeForm />
           <ul>
             <li className="flex flex-row gap-2 ">
@@ -57,7 +58,7 @@ const DFooter = () => {
                   href={item.link}
                   target="_blank"
                   key={index}
-                  className="hover:bg-white hover:text-black rounded-full px-2 py-2 duration-300 ease-out"
+                  className="hover:bg-[#f0c76e] text-white rounded-full px-2 py-2 duration-300 ease-out"
                 >
                   {item.icon}
                 </Link>
@@ -70,11 +71,11 @@ const DFooter = () => {
           {
             data && data.map((item, index) => (
               <div key={index}>
-                <h1 className=' text-lg font-semibold'>{item.mainTitle}</h1>
+                <h1 className=' text-lg font-semibold text-[#f0c76e] italic'>{item.mainTitle}</h1>
                 {
                   item?.items.map((subItems, index) => (
                     <ul key={index}>
-                      <li className=' text-[14px] font-normal py-2'><Link href={subItems.path}>{subItems.title}</Link></li>
+                      <li className=' text-sm font-medium py-2 text-white hover:text-[#f0c76e]'><Link href={subItems.path}>{subItems.title}</Link></li>
 
                     </ul>
                   ))
@@ -83,10 +84,10 @@ const DFooter = () => {
             ))
           }
           <div className=' flex flex-col gap-3 text-[14px] font-normal'>
-            <h1 className=' text-lg font-semibold'>STORE INFORMATION</h1>
-            <p className=' flex flex-row items-center gap-1'><MdLocationOn size={18} /> <span>Road:03, Block:B, Niketon, Gulshan-1, Dhaka</span></p>
-            <p className=' flex flex-row items-center gap-1'> <MdCall size={18} /> <Link href="">+880 1971 971 520</Link></p>
-            <p className=' flex flex-row items-center gap-1'><MdEmail size={18} /> <Link href="">contact.chocolate@gmail.com</Link></p>
+            <h1 className=' text-xl font-semibold italic  text-[#f0c76e]'>STORE INFORMATION</h1>
+            <p className=' flex flex-row items-center gap-1 text-white'><MdLocationOn size={20} /> <span>Road:03, Block:B, Niketon, Gulshan-1, Dhaka</span></p>
+            <p className=' flex flex-row items-center gap-1 text-white hover:text-[#f0c76e]'> <MdCall size={20} /> <Link href="tel:+01881286293">+01881-286293</Link></p>
+            <p className=' flex flex-row items-center gap-1 text-white hover:text-[#f0c76e]'><MdEmail size={20} /> <Link href="mailto:sariothossain1011@gmail.com">sariothossain1011@gmail.com</Link></p>
           </div>
         </div>
 

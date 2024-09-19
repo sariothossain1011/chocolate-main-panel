@@ -54,7 +54,7 @@ const CheckoutPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [selectedDeliveryLocation, setSelectedDeliveryLocation] = useState<string>("insite-dhaka");
-  console.log({ selectedDeliveryLocation })
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -84,7 +84,7 @@ const CheckoutPage = () => {
   };
 
   const submitHandler = async (data: any) => {
-    console.log({ data },{comment})
+    console.log(data)
     // setLoading(true);
     // setError(null);
     // try {

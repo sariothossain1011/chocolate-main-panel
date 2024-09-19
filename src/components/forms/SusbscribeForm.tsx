@@ -17,10 +17,10 @@ const SusbscribeForm = () => {
       id="email"
       placeholder="Enter your email"
       type="email"
-      className="rounded-md px-4  text-sm outline-none text-black border-2"
+      className="rounded-md px-4  text-sm outline-none text-black bg-white/95 border-2"
     />
-    <div className="absolute top-1 right-0 text-white bg-[#132842] hover:bg-[#263d5c] rounded-r-md py-2 w-28 flex justify-center items-center">
-      SubSscribe
+    <div className="absolute top-1 right-0 bg-black hover:bg-[#f0c76e] text-white rounded-r-md py-2 w-28 flex justify-center items-center">
+      SUBSCRIBE
     </div>
   </Form>
     </>

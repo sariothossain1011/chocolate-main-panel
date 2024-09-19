@@ -7,18 +7,27 @@ import {  IStoreItem } from "@/types/index";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store/Store";
 import { removeFromWishlist } from "@/redux/state-slice/WishlistSlice";
+import Button from "@/components/button/Button";
 
 const WishlistPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [wishlistItem, setWishlistItem] = useState<IStoreItem | undefined>();
+  const [isMounted, setIsMounted] = useState(false); // Check for client-side mounting
 
-  const wishlistItems = useSelector(
-    (state: RootState) => state.wishlist.wishlistItems
-  );
-  const wishlistCount = useSelector(
-    (state: RootState) => state.wishlist.wishlistCount
-  );
+  // Use useEffect to ensure consistent state between SSR and CSR
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const { wishlistCount, wishlistItems } = useSelector(
+    (state: RootState) => ({
+      wishlistCount: state.wishlist.wishlistCount,
+      wishlistItems: state.wishlist.wishlistItems,
+    })
+  ) as {
+    wishlistCount: number;
+    wishlistItems: IStoreItem[];
+  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -34,15 +43,10 @@ const WishlistPage: React.FC = () => {
     dispatch(removeFromWishlist(id));
   };
 
-  const handleModalOpen = (item: IStoreItem) => {
-    const product = wishlistItems.find((prod) => prod.uuid === item.uuid);
 
-    if (product) {
-      setWishlistItem(product);
-    } else {
-      console.warn("Product not found:", item.uuid);
-    }
-  };
+  if (!isMounted) {
+    return <div>Loading...</div>;
+  }
 
   if (wishlistItems.length == 0) {
     return <div className=' text-center py-20'>
@@ -89,9 +93,10 @@ const WishlistPage: React.FC = () => {
               </div>
             </div>
             <Link href={`/products/${item.permaLink}`}
-              className="w-48 py-4 text-center hover:bg-opacity-95 bg-[#132842] text-white rounded-full text-sm font-semibold"
+              className="w-40"
             >
-              details
+            
+              <Button name="DETAILS"/>
             </Link>
           </div>
         ))}

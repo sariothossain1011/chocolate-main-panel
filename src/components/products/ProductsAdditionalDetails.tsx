@@ -16,8 +16,8 @@ const ProductsAdditionalDetails: React.FC<ProductsAdditionalDetailsProps> = ({ r
     return (
         <div className=' py-10'>
             <div className=' min-w-full flex flex-row gap-8 md:gap-16 bg-slate-200 justify-center items-center text-xl font-bold py-3 rounded-md'>
-                <button onClick={() => setTabs("description")} className={`${tabs === "description" && "text-[#703f07]"}`}>Add to card</button>
-                <button onClick={() => setTabs("review")} className={`${tabs === "review" && "text-[#703f07]"}`}>Review</button>
+                <button onClick={() => setTabs("description")} className={`${tabs === "description" && "text-[#33101C]"}`}>Add to card</button>
+                <button onClick={() => setTabs("review")} className={`${tabs === "review" && "text-[#33101C]"}`}>Review</button>
             </div>
             {tabs === "review" ? (
                 <div className=' grid grid-cols-1 md:grid-cols-2 gap-10'>

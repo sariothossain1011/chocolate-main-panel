@@ -38,7 +38,7 @@ const LatestNews: React.FC = () => {
   return (
     <>
       <div className="w-full h-full flex flex-col lg:flex-row   gap-4 py-10">
-        <div className=" w-full md:min-w-[25%] px-8 py-10 flex flex-col justify-between bg-[#703f07] text-white rounded-xl">
+        <div className=" w-full md:min-w-[25%] px-8 py-10 flex flex-col justify-between bg-[#33101C] text-white rounded-xl">
           <div className="flex flex-col gap-5 mb-5">
             <p className="text-xl font-normal">LATEST NEWS</p>
             <h1 className="text-3xl font-bold ">From Our Blog</h1>

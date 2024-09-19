@@ -126,7 +126,7 @@ const ContactUsPage = () => {
                 href={item.link}
                 target="_blank"
                 key={index}
-                className=" bg-[#703f07] hover:bg-[#f0c76e] rounded-md text-white px-2 py-2 duration-300 ease-out"
+                className=" bg-[#33101C] hover:bg-[#f0c76e] rounded-md text-white px-2 py-2 duration-300 ease-out"
               >
                 {item.icon}{" "}
               </Link>

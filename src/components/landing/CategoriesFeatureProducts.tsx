@@ -49,7 +49,7 @@ const CategoriesFeatureProducts = () => {
             {Object.entries(categorizedProducts).map(([category, products]) => (
                 <div key={category} className='py-4'>
                     <div className='flex flex-row justify-center items-center py-4'>
-                        <h1 className=' bg-[#703f07] text-[#f0c76e] px-8 py-2 text-lg font-bold rounded-sm uppercase'>
+                        <h1 className=' bg-[#33101C] text-white px-8 py-2 text-lg font-bold rounded-sm uppercase'>
                             {category}
                         </h1>
                     </div>

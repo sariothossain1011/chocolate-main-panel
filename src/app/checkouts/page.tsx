@@ -14,6 +14,8 @@ import Cookies from "js-cookie";
 import { clearCart } from "@/redux/state-slice/CartSlice";
 import { RootState } from "@/redux/store/Store";
 import { IStoreItem } from "@/types";
+import Button from "@/components/button/Button";
+import Link from "next/link";
 
 const GET_DEFAULTS_ADDRESS = `
   query{
@@ -173,7 +175,16 @@ const CheckoutPage = () => {
   // };
 
   return (
-    <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
+    <div className=" py-10">
+      <div className="text-center py-10 md:py-40">
+        <h1 className="text-2xl md:text-4xl font-semibold ">
+          CHECKOUT PAGE
+        </h1>
+        <p className="text-sm font-normal py-2">
+          <Link href="/">Home</Link> &#x2022; <span>Checkout Page</span>
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10  md:border-2 md:rounde-md md:p-10">
       <Form
         submitHandler={submitHandler}
         className="min-w-full flex flex-col gap-4"
@@ -232,7 +243,7 @@ const CheckoutPage = () => {
           required
           className="min-w-full border hover:border-black rounded-md px-4 py-3 text-sm outline-none"
         />
-        {selectedDeliveryLocation === "insite-dhaka" && (
+        
           <div className="flex flex-row gap-4 text-center">
             <button
               type="button"
@@ -242,8 +253,8 @@ const CheckoutPage = () => {
                   value: "COD",
                 })
               }
-              className={`py-8 w-48 px-2 ${selectedPayment.value === "COD"
-                  ? "bg-[#132842] text-white"
+              className={`py-8 w-48 px-2 font-semibold ${selectedPayment.value === "COD"
+                  ? "bg-[#f0c76e] text-black"
                   : "bg-slate-200"
                 } `}
             >
@@ -258,24 +269,17 @@ const CheckoutPage = () => {
                 })
               }
               disabled
-              className={`py-8 w-48 px-2 ${selectedPayment.value === "BKASH"
-                  ? "bg-[#132842] text-white"
+              className={`py-8 w-48 px-2 font-semibold ${selectedPayment.value === "BKASH"
+                  ? "bg-[#f0c76e] text-white"
                   : "bg-slate-200"
                 } `}
             >
               Bkash
             </button>
           </div>
-        )}
         {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+        <Button name={`${loading ? <LoadingSpinner /> : "PAY Now"}`} />
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="min-w-full bg-[#132842] py-4 text-white rounded-full text-base"
-        >
-          {loading ? <LoadingSpinner /> : "Pay Now"}
-        </button>
       </Form>
       <div className="flex flex-col gap-4">
         {cartItems?.map((item, index) => (
@@ -316,6 +320,7 @@ const CheckoutPage = () => {
           <span>Total</span>
           <span>${total}</span>
         </div>
+      </div>
       </div>
     </div>
   );

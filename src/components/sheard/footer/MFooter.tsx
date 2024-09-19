@@ -44,7 +44,7 @@ const MFooter = () => {
 
 
     return (
-        <div className=''>
+        <div className=' py-8'>
             <div className=' grid md:grid-cols-2  gap-6 justify-center items-center text-center pb-4'>
                 <div className=' flex flex-col gap-2 '>
                     <div className=' flex flex-row justify-center items-center'>

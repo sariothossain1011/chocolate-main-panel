@@ -111,7 +111,7 @@ const LatestNews: React.FC = () => {
                       </div>
                       <Link
                         href={`/blogs/${item.id}`}
-                        className=" flex justify-center items-center w-10 h-10 text-center rounded-full  bg-white hover:bg-[#132742] text-black hover:text-white"
+                        className=" flex justify-center items-center w-10 h-10 text-center rounded-full  bg-white hover:bg-[#f0c76e] text-black hover:text-white"
                       >
                         <GoArrowRight size={24} />
                       </Link>

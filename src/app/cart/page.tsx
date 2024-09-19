@@ -70,7 +70,16 @@ const CartPage = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 py-20">
+    <div className=' flex flex-col'>
+    <div className="text-center py-10 md:py-40">
+    <h1 className="text-2xl md:text-4xl font-semibold ">
+      CART PAGE
+    </h1>
+    <p className="text-sm font-normal py-2">
+      <Link href="/">Home</Link> &#x2022; <span>Cart Page</span>
+    </p>
+  </div>
+    <div className="flex flex-col md:flex-row gap-8 py-10">
       <div className="min-w-full md:min-w-[60%]">
         <div className="border">
           <div className="min-w-full hidden md:flex flex-col md:flex-row justify-between items-center bg-slate-100 px-4 py-3">
@@ -148,7 +157,7 @@ const CartPage = () => {
           </div>
         </div>
 
-        <div className="w-full flex flex-row justify-center items-center text-center gap-4 md:gap-8 py-4">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center text-center gap-4 md:gap-8 py-4">
           <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
          
           <Link
@@ -185,6 +194,7 @@ const CartPage = () => {
 
         <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
       </div>
+    </div>
     </div>
   )
 }

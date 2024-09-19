@@ -45,11 +45,11 @@ const Header = () => {
           <div className='relative flex flex-row items-center gap-3'>
             <FaBars size={24} onClick={() => setIsOpen(!isOpen)} className="cursor-pointer " />
             {/* <Image src="/logo/logo.png" alt="" width={90} height={20} /> */}
-            <h1 className=' text-[#f0c76e] text-3xl font-extrabold italic'>CHOCOLATE</h1>
+            <h1 className=' text-[#f0c76e] text-xl md:text-3xl font-extrabold italic'>CHOCOLATE</h1>
             <DHeaderSearch />
 
             {isOpen && (
-              <nav className='absolute top-[56px] left-0 z-40 bg-white shadow-lg min-w-64 rounded-sm'>
+              <nav className='absolute top-[56px] left-0 z-40 bg-white text-black shadow-lg min-w-64 rounded-sm'>
                 <ul className='space-y-3 pt-2'>
                   {menu.map((item) => (
                     <li key={item.title} className='relative border-b pb-2'>
@@ -59,7 +59,7 @@ const Header = () => {
                       </div>
 
                       {activeMenu === item.title && item.submenu.length > 0 && (
-                        <ul className='relative md:absolute left-0 md:left-[255px] top-3 md:top-0 border-t-2 md:border-t-none border-l-4 border-l-gray-900 md:bg-white min-w-64 rounded-sm'>
+                        <ul className='relative md:absolute left-0 md:left-[255px] top-3 md:top-0 border-t-2 md:border-t-none border-l-4 bg-white text-black border-l-[#f0c76e] min-w-64 rounded-sm'>
                           {item.submenu.map((subItem) => (
                             <li key={subItem.title} className='px-2 py-2 border-b-2'>
                               <Link href={subItem.link}>{subItem.title}</Link>
@@ -102,7 +102,7 @@ const Header = () => {
           <div className='fixed inset-0 bg-black/40 z-10' onClick={() => setIsOpen(false)} />
         )}
       </header>
-      <MHeaderSearch />
+    
     </>
   );
 };

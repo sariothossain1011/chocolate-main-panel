@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { RiCalendarTodoFill, RiDeleteBin5Line } from "react-icons/ri";
-import {  IStoreItem } from "@/types/index";
+import { IStoreItem } from "@/types/index";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store/Store";
 import { removeFromWishlist } from "@/redux/state-slice/WishlistSlice";
@@ -55,7 +55,7 @@ const WishlistPage: React.FC = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container py-10">
       <div className="text-center py-20 md:py-40">
         <h1 className="text-2xl md:text-4xl font-semibold md:font-medium uppercase">
           Page Wishlist
@@ -64,40 +64,42 @@ const WishlistPage: React.FC = () => {
           <Link href="/">Home</Link> &#x2022; <span>Page Wishlist</span>
         </p>
       </div>
-      <div className="flex flex-col gap-4 pb-10 md:pb-20">
+      <div className="flex flex-col gap-4">
         {wishlistItems?.map((item) => (
           <div
             key={item.uuid}
-            className="flex flex-row justify-between items-center rounded-xl border p-4 md:p-8 hover:shadow-xl duration-300"
+            className=" flex flex-col md:flex-row justify-between items-center rounded-sm border gap-2  p-4 shadow duration-300"
           >
-            <div className="flex flex-row items-center gap-4">
-              <RiDeleteBin5Line
-                size={18}
-                className="cursor-pointer"
-                onClick={() => removeWishLIstItem(item.uuid)}
-              />
+            <div className="flex flex-col md:flex-row items-center gap-4">
+
               <Image
                 src={item.image}
                 alt={item.title}
-                width={100}
-                height={100}
-                className="rounded-lg"
+                width={150}
+                height={150}
+                className="rounded-md"
               />
-              <div className="text-[12px] text-gray-700">
-                <p className="font-bold">{item.title}</p>
-                <p>${item.discountPrice}</p>
-                <p className="flex gap-2 items-center">
+              <div className=" text-gray-700  text-center md:text-left">
+                <p className="text-md md:text-xl font-semibold">{item.title}</p>
+                <p className=" text-md md:text-lg font-bold">${item.discountPrice}</p>
+                <p className="flex gap-2 items-center justify-center md:justify-start text-md">
                   <RiCalendarTodoFill size={14} />
                   <span>{formatDate(item.date)}</span>
                 </p>
               </div>
             </div>
-            <Link href={`/products/${item.permaLink}`}
-              className="w-40"
-            >
-            
-              <Button name="DETAILS"/>
-            </Link>
+            <div className=" min-w-full md:min-w-80 flex flex-col justify-end items-end gap-3 md:p-4">
+             
+               <Button name="DELETE" className="w-full"  onClick={() => removeWishLIstItem(item.uuid)}/>
+              <Link href={`/products/${item.permaLink}`}
+                className="w-full"
+              >
+
+                <Button name="DETAILS" />
+              </Link>
+
+            </div>
+
           </div>
         ))}
       </div>

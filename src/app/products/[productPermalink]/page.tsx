@@ -3,6 +3,7 @@ import Button from '@/components/button/Button';
 import ProductsAdditionalDetails from '@/components/products/ProductsAdditionalDetails';
 import getSingleProduct from '@/lib/api/getSingleProduct';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 interface SingleProductProps {
@@ -11,6 +12,7 @@ interface SingleProductProps {
 const ProductPermalinkPage: React.FC<SingleProductProps> = async ({ params }) => {
   const { productPermalink } = params;
   const product = await getSingleProduct(productPermalink);
+
   return (
     <div className='py-20'>
       <div className=' grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -40,7 +42,9 @@ const ProductPermalinkPage: React.FC<SingleProductProps> = async ({ params }) =>
           }
           <div className=' min-w-full flex flex-row gap-4  items-center'>
             <Button name='ADD TO CART'/>
-            <Button name='BUY NOW'/>
+            <Link href="/checkouts" className=' w-full'>
+            <Button name='BUY NOW' />
+            </Link>
           </div>
 
         </div>

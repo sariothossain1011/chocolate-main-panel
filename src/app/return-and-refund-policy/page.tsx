@@ -1,15 +1,14 @@
+import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 
 const ReturnAndRefundPolicyPage = () => {
     return (
 
-        <div className="p-6 md:p-12">
-            <div className=" text-center py-10">
-                <h1 className=" text-xl md:text-4xl font-bold ">
-                    Return and Refund Policy
-                </h1>
-            </div>
-
+      
+ <>
+ <PageTitle title="Return and Refund Policy"/>
+  <div className=" max-w-7xl mx-auto flex flex-col items-center gap-4 md:gap-8 justify-center text-sm md:text-md font-normal pb-10 ">
+        
             <div className="mb-8">
                 <h2 className="text-xl md:text-2xl font-semibold mb-4">
                     Return Policy
@@ -54,6 +53,7 @@ const ReturnAndRefundPolicyPage = () => {
                 </p>
             </section>
         </div>
+        </>
     );
 };
 

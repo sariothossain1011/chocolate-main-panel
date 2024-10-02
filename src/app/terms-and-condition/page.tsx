@@ -1,14 +1,11 @@
+import PageTitle from '@/components/common/PageTitle'
 import React from 'react'
 
 const TermsAndConditionPage = () => {
   return (
-    <div className="p-6 md:p-12">
-    <div className=" text-center py-10">
-      <h1 className=" text-xl md:text-4xl font-bold ">
-        FREQUENTLY ASKED QUESTIONS
-      </h1>
-    </div>
-      <div className='  pb-10 md:pb-20'>
+    <>
+      <PageTitle title='Terms and Condition'/>
+      <div className=" max-w-7xl mx-auto flex flex-col items-center gap-4 md:gap-8 justify-center text-sm md:text-md font-normal pb-10 ">
         <div className="mb-8">
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
             General
@@ -69,7 +66,7 @@ const TermsAndConditionPage = () => {
       </div>
 
 
-    </div>
+    </>
   )
 }
 

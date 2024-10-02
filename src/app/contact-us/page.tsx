@@ -13,6 +13,7 @@ import {
 import emailjs from "@emailjs/browser";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
 import Button from "@/components/button/Button";
+import PageTitle from "@/components/common/PageTitle";
 
 const ContactUsPage = () => {
   const [loading, setLoading] = useState(false);
@@ -60,7 +61,9 @@ const ContactUsPage = () => {
     },
   ];
   return (
-    <div className=" container py-10">
+   <>
+    <PageTitle title="Contact Us"/>
+    <div className=" py-10">
       <div className="py-4">
         <h2 className="text-xl font-semibold py-2 text-[#f0c76e]">GET IN TOUCH</h2>
         <p className="text-sm font-normal">
@@ -135,6 +138,7 @@ const ContactUsPage = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

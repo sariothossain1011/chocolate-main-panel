@@ -5,7 +5,7 @@ import Button from "@/components/button/Button";
 
 const NotFoundPage: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen ">
+    <div className="flex flex-col items-center justify-center text-center min-h-screen ">
       <div className="relative">
         {/* Add your image here */}
         <Image

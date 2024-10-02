@@ -1,5 +1,6 @@
 "use client";
 import AccordionItem from "@/components/common/AccordionItem";
+import PageTitle from "@/components/common/PageTitle";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -50,14 +51,10 @@ const FrequentlyAskedQuestionsPage: React.FC = () => {
   };
 
   return (
-    <div className="p-6 md:p-12">
-      <div className=" text-center py-10">
-        <h1 className=" text-xl md:text-4xl font-bold ">
-          FREQUENTLY ASKED QUESTIONS
-        </h1>
-      </div>
-      <div className=" flex flex-col  gap-8 py-10 md:py-14 text-md font-normal">
-        <p className=" font-semibold">
+    <>
+      <PageTitle title="frequently asked questions"/>
+      <div className=" max-w-7xl mx-auto flex flex-col items-center gap-4 md:gap-8 justify-center text-sm font-normal pb-10 ">
+        <p className=" text-sm md:text-xl font-medium md:font-semibold">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
           consequat ut ex vel finibus. Nunc eget molestie purus. Fusce imperdiet
           pulvinar est, eget fermentum nisi. Vestibulum ante ipsum primis in
@@ -91,7 +88,7 @@ const FrequentlyAskedQuestionsPage: React.FC = () => {
         })}
       </div>
 
-      <div className="flex flex-col  justify-center items-center gap-4 py-10 md:py-20">
+      <div className="flex flex-col  justify-center items-center text-center gap-4 py-10 md:py-20">
         <p className="text-2xl  font-semibold">
           Can&lsquo;t find the answer you are looking for?
         </p>
@@ -100,7 +97,7 @@ const FrequentlyAskedQuestionsPage: React.FC = () => {
           Contact Us Now
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { useRouter } from 'next/navigation';
 import { addComment, decrementQuantity, incrementQuantity, removeFromCart } from '@/redux/state-slice/CartSlice';
 import Button from '@/components/button/Button';
+import PageTitle from '@/components/common/PageTitle';
 const CartPage = () => {
 
   const router = useRouter();
@@ -62,7 +63,7 @@ const CartPage = () => {
   if (!isMounted) {
     return <div>Loading...</div>;
   }
-  
+
   if (cartItems.length == 0) {
     return <div className=' text-center py-20'>
       <h1>Empty Cart Value</h1>
@@ -71,130 +72,123 @@ const CartPage = () => {
 
   return (
     <div className=' flex flex-col'>
-    <div className="text-center py-10 md:py-40">
-    <h1 className="text-2xl md:text-4xl font-semibold ">
-      CART PAGE
-    </h1>
-    <p className="text-sm font-normal py-2">
-      <Link href="/">Home</Link> &#x2022; <span>Cart Page</span>
-    </p>
-  </div>
-    <div className="flex flex-col md:flex-row gap-8 py-10">
-      <div className="min-w-full md:min-w-[60%]">
-        <div className="border">
-          <div className="min-w-full hidden md:flex flex-col md:flex-row justify-between items-center bg-slate-100 px-4 py-3">
-            <div className="w-full">
-              <span className="pl-12 text-[12px] font-semibold">
-                PRODUCTS
-              </span>
+      <PageTitle title='Cart Page'/>
+      <div className="flex flex-col md:flex-row gap-8 py-10">
+        <div className="min-w-full md:min-w-[60%]">
+          <div className="md:border">
+            <div className="min-w-full hidden md:flex flex-col md:flex-row justify-between items-center bg-slate-100 px-4 py-3">
+              <div className="w-full">
+                <span className="pl-12 text-[12px] font-semibold">
+                  PRODUCTS
+                </span>
+              </div>
+              <div className="w-full flex justify-between items-center text-[12px] font-semibold">
+                <p>PRICE</p>
+                <p>QTY</p>
+                <p>TOTAL</p>
+              </div>
             </div>
-            <div className="w-full flex justify-between items-center text-[12px] font-semibold">
-              <p>PRICE</p>
-              <p>QTY</p>
-              <p>TOTAL</p>
-            </div>
-          </div>
 
-          <div className="flex flex-col">
-            {cartItems &&
-              cartItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col md:flex-row justify-between items-center border gap-8 md:gap-0 p-6"
-                >
-                  <div className="max-w-full md:w-full flex flex-row gap-4 md:gap-2 items-center">
-                    <div className="px-4">
-                      <RiDeleteBin5Line
-                        size={18}
-                        className="cursor-pointer"
-                        onClick={() => handleRemoveItem(item.uuid)}
+            <div className="flex flex-col gap-2">
+              {cartItems &&
+                cartItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col md:flex-row justify-between items-center border gap-2 md:gap-0  p-3 md:p-6"
+                  >
+                    <div className="max-w-full md:w-full flex flex-row gap-4 md:gap-2 items-center">
+                      <div className="md:px-4">
+                        <RiDeleteBin5Line
+                          size={18}
+                          className="cursor-pointer"
+                          onClick={() => handleRemoveItem(item.uuid)}
+                        />
+                      </div>
+
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={100}
+                        height={100}
+                        className=" w-20 bg-cover"
                       />
+                      <div className="text-[12px]">
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="font-medium">
+                          Size:
+                        </p>
+                      </div>
                     </div>
 
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={100}
-                      height={100}
-                      className="bg-cover"
-                    />
-                    <div className="text-[12px]">
-                      <p className="font-semibold">{item.title}</p>
-                      <p className="font-medium">
-                        Size:
-                      </p>
+                    <div className="w-full flex flex-row gap-2 justify-between items-center text-sm">
+                      <p>€{item.price}</p>
+                      <div className="md:mb-4 flex items-center">
+                        <button
+                          onClick={() => handleDecreaseQuantity(item.uuid)}
+                          className="bg-gray-300 px-3 py-1 rounded"
+                        >
+                          -
+                        </button>
+                        <input
+                          type="number"
+                          value={item.quantity}
+                          min="1"
+                          readOnly
+                          className=" w-12 text-center mx-2 border border-gray-300 rounded"
+                        />
+                        <button
+                          onClick={() => handleIncreaseQuantity(item.uuid)}
+                          className="bg-gray-300 px-3 py-1 rounded"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <p>€{(item.discountPrice * item.quantity).toFixed(2)}</p>
+
                     </div>
                   </div>
+                ))}
+            </div>
+          </div>
 
-                  <div className="w-full flex justify-between items-center text-sm">
-                    <p>€{item.price}</p>
-                    <div className="mb-4 flex items-center">
-                      <button
-                        onClick={() => handleDecreaseQuantity(item.uuid)}
-                        className="bg-gray-300 px-3 py-1 rounded"
-                      >
-                        -
-                      </button>
-                      <input
-                        type="number"
-                        value={item.quantity}
-                        min="1"
-                        readOnly
-                        className="w-12 text-center mx-2 border border-gray-300 rounded"
-                      />
-                      <button
-                        onClick={() => handleIncreaseQuantity(item.uuid)}
-                        className="bg-gray-300 px-3 py-1 rounded"
-                      >
-                        +
-                      </button>
-                    </div>
-                    <p>€{(item.discountPrice * item.quantity).toFixed(2)}</p>
+          <div className="w-full flex flex-col md:flex-row justify-center items-center text-center gap-4 md:gap-8 py-4">
+            <Button name='PROCEED TO CHECKOUT' onClick={handleCheckout} />
 
-                  </div>
-                </div>
-              ))}
+            <Link
+              href="/products"
+              className=' w-full'
+            >
+              <Button name='CONTINUE SHOPPING' />
+            </Link>
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center items-center text-center gap-4 md:gap-8 py-4">
-          <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
-         
-          <Link
-            href="/products"
-            className=' w-full'
-          >
-            <Button name='CONTINUE SHOPPING'/>
-          </Link>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-4 min-w-full md:min-w-[40%]">
-        <textarea
-          name="comment"
-          id="comment"
-          placeholder="COMMENTS HERE..."
-          rows={6}
-          value={comment}
-          onChange={handleCommentChange}
-          className="w-full text-sm outline-none text-black border p-2"
-        />
+        <div className="flex flex-col gap-4 min-w-full md:min-w-[40%]">
+          <textarea
+            name="comment"
+            id="comment"
+            placeholder="COMMENTS HERE..."
+            rows={6}
+            value={comment}
+            onChange={handleCommentChange}
+            className="w-full text-sm outline-none text-black border p-2"
+          />
 
 
 
-        <div className="border">
-          <span className="px-6 py-3 text-[12px] font-semibold uppercase">
-            There are {`${cartCount}`} items in your cart
-          </span>
-          <div className="flex flex-row justify-between items-center bg-slate-100 px-6 py-4">
-            <span className="text-lg font-semibold">Total:</span>
-            <span className="text-xl font-bold">€{total.toFixed(2)}</span>
+          <div className="border">
+            <span className="px-6 py-3 text-[12px] font-semibold uppercase">
+              There are {`${cartCount}`} items in your cart
+            </span>
+            <div className="flex flex-row justify-between items-center bg-slate-100 px-6 py-4">
+              <span className="text-lg font-semibold">Total:</span>
+              <span className="text-xl font-bold">€{total.toFixed(2)}</span>
+            </div>
           </div>
-        </div>
 
-        <Button name='PROCEED TO CHECKOUT'onClick={handleCheckout}/>
+          <Button name='PROCEED TO CHECKOUT' onClick={handleCheckout} />
+        </div>
       </div>
-    </div>
     </div>
   )
 }

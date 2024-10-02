@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store/Store";
 import { removeFromWishlist } from "@/redux/state-slice/WishlistSlice";
 import Button from "@/components/button/Button";
+import PageTitle from "@/components/common/PageTitle";
 
 const WishlistPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,14 +57,7 @@ const WishlistPage: React.FC = () => {
 
   return (
     <div className="container py-10">
-      <div className="text-center py-20 md:py-40">
-        <h1 className="text-2xl md:text-4xl font-semibold md:font-medium uppercase">
-          Page Wishlist
-        </h1>
-        <p className="text-sm font-normal py-2">
-          <Link href="/">Home</Link> &#x2022; <span>Page Wishlist</span>
-        </p>
-      </div>
+      <PageTitle title="Wishlist Page"/>
       <div className="flex flex-col gap-4">
         {wishlistItems?.map((item) => (
           <div

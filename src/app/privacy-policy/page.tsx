@@ -1,20 +1,14 @@
 
+import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 
 const PrivacyPolicyPage = () => {
   return (
-    <div className="p-6 md:p-12">
-    <div className=" text-center py-10">
-      <h1 className=" text-xl md:text-4xl font-bold ">
-        FREQUENTLY ASKED QUESTIONS
-      </h1>
-    </div>
+    <div className="">
+    <PageTitle title="Privacy Policy"/>
+        <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center pb-10 ">
 
-
-        <div className="flex flex-col items-center justify-center ">
-
-          <div className="mx-auto w-full  py-12 md:py-16 lg:py-20">
-            {/* Component */}
+ 
             <div className="flex flex-col items-center gap-y-14">
              
               <div className="flex min-w-full flex-col gap-y-10">
@@ -146,7 +140,6 @@ const PrivacyPolicyPage = () => {
             </div>
           </div>
         </div>
-    </div>
   );
 };
 

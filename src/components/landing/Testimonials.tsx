@@ -28,7 +28,7 @@ const Testimonials: React.FC = () => {
             title: "Unlocking New Levels of Speed and Endurance",
             description:
                 "Our Product Return Policy Exclusively Designed to Exceed Your Expectations and Ensure Your Utmost Satisfaction.",
-            name: "Abdur Rouf Jibon",
+            name: "Amir Hossain",
             position: "Managing Director",
             image: p4.src,
         },
